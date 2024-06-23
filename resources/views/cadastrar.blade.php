@@ -9,9 +9,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <form method="POST" action="processar_formulario.php">
+                    <form method="POST" action="/cadastrar">
                         <!-- @csrf -->
-
+                        @csrf
                         <!-- autor -->
                         <div>
                             <x-input-label for="autor" :value="__('autor')" />

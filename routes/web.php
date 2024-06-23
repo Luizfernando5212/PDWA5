@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\albumController;
+use App\Http\Controllers\xmlController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -14,6 +16,10 @@ Route::get('/dashboard', function () {
 Route::get('/cadastrar', function () {
     return view('cadastrar');
 })->middleware(['auth', 'verified'])->name('cadastrar');
+
+Route::post('/cadastrar', [albumController::class, 'salvar'])->middleware(['auth', 'verified'])->name('cadastrar');
+
+Route::get('/data-xml', [xmlController::class, 'gerarXml'])->middleware(['auth', 'verified'])->name('data-xml');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
